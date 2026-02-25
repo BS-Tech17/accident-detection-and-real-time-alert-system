@@ -182,20 +182,13 @@ The results demonstrate the effectiveness of combining AI and IoT technologies f
 
 ---
 
-<h2>👩‍💻 Author</h2>
+<h2>👩‍💻 Made By</h2>
 
 <p>
-<b>Bhoomika Saxena</b><br/>
+<b>Bhoomika Saxena & Adityan Balakumar</b><br/>
 B.Tech — Computer Science (IoT & Intelligent Systems)<br/>
 AI | Embedded Systems | IoT | Research & Innovation
 </p>
 
 ---
 
-<h2>📜 License</h2>
-
-<p>
-This project is intended for academic, research, and demonstration purposes only.
-</p>
-
-<hr/>
