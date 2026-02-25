@@ -1,62 +1,201 @@
+<h1 align="center">🚨 AI-Based Accident Detection & Real-Time Notification System</h1>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Raspberry%20Pi-5-C51A4A?style=for-the-badge&logo=raspberrypi&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Deep%20Learning-MobileNetV2-%230072C6?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/IoT-MQTT-%2300C853?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/GSM-Alerts-%231E88E5?style=for-the-badge"/>
+</p>
+
+<hr/>
+
+<h2>📌 Problem Motivation</h2>
+<p>
+Road accidents are one of the leading causes of fatalities worldwide. A major reason for these fatalities is the delay in emergency medical response due to the absence of automated, real-time accident detection and reporting systems.
+</p>
+<p>
+This project aims to minimize the response time by automatically detecting road accidents using AI and instantly notifying nearby hospitals and the victim’s emergency contacts using IoT and GSM-based communication.
+</p>
 
 ---
 
-## 🛠 Hardware
-- Raspberry Pi 5 & Pi Camera  
-- NodeMCU (ESP8266) ×2  
-- GSM Module (SIM800/SIM900)  
-- SIM Card, LED, Buzzer, Security Pole, Jumper Wires & Breadboard  
+<h2>🧠 System Overview</h2>
+<p>
+This project presents an AI-based accident detection and real-time notification system that integrates deep learning, embedded systems, and IoT communication technologies.
+</p>
+
+<ul>
+  <li>Accident detection using a CNN model based on MobileNetV2</li>
+  <li>Real-time hospital alert using MQTT protocol</li>
+  <li>Emergency contact notification using GSM (SMS + Call)</li>
+  <li>Bystander-assisted vehicle identification using license plate reporting</li>
+</ul>
 
 ---
 
-## ⚙️ Software
-- Python 3.x, TensorFlow/Keras, OpenCV  
-- MQTT Broker (Mosquitto)  
-- Raspberry Pi OS, pySerial for GSM communication  
+<h2>🏗 System Architecture</h2>
+
+<pre>
+Pi Camera
+    │
+    ▼
+Raspberry Pi 5
+ (CNN Accident Detection)
+    │
+    ├──► LED + Buzzer (Local Alert)
+    ├──► NodeMCU ── MQTT ──► Hospital NodeMCU
+    ├──► GSM Module ──► SMS / Call (Emergency Contacts)
+    └──► Email ──► Hospital (Image + Google Maps Location)
+</pre>
+
+<p><i>(Replace with an actual architecture diagram image if available)</i></p>
 
 ---
 
-## 🔌 Pin Example
-| Component | Raspberry Pi Pin |
-|-----------|----------------|
-| Pi Camera | CSI Port       |
-| LED       | GPIO 17        |
-| Buzzer    | GPIO 27        |
-| NodeMCU   | GPIO 14/15     |
-| GSM TX/RX | GPIO 10/9      |
+<h2>🛠 Hardware Requirements</h2>
+
+<ul>
+  <li>Raspberry Pi 5</li>
+  <li>Pi Camera Module</li>
+  <li>NodeMCU (ESP8266) – 2 Units</li>
+  <li>GSM Module (SIM800 / SIM900)</li>
+  <li>Active SIM Card</li>
+  <li>LED Indicator</li>
+  <li>Buzzer</li>
+  <li>Push Button (Hospital Side)</li>
+  <li>Power Supply & Connecting Wires</li>
+</ul>
 
 ---
 
-## 🎯 Methodology
-1. **Detection:** Pi-Camera captures frames; MobileNetV2 detects accidents.  
-2. **Local Alert:** Red LED & buzzer activated.  
-3. **Hospital Alert:** NodeMCU publishes MQTT alert; hospital acknowledges.  
-4. **Emergency Contact:** Bystanders send license plate; GSM module notifies family.  
-5. **Verification:** Accident image & Google Maps link emailed to hospital.
+<h2>📦 Software & Technologies</h2>
+
+<ul>
+  <li>Python</li>
+  <li>TensorFlow / Keras</li>
+  <li>MobileNetV2 (Transfer Learning)</li>
+  <li>OpenCV</li>
+  <li>MQTT Protocol</li>
+  <li>Arduino IDE</li>
+  <li>GSM AT Commands</li>
+  <li>Google Maps API</li>
+</ul>
 
 ---
 
-## 📊 Results
-- **Detection Accuracy:** 92% on Kaggle *Car Crash Dataset (CCD)*  
-- **MQTT Latency:** Near real-time  
-- **False Positives:** Minimized via image verification & security pole system  
+<h2>📊 Dataset Used</h2>
+
+<p>
+<b>Car Crash Dataset (CCD)</b><br/>
+By Asef Jamil Ajwad (Kaggle)
+</p>
+
+<p>
+The dataset consists of labeled accident and non-accident images and was used to train and validate the CNN-based accident detection model.
+</p>
 
 ---
 
-## 🚀 Future Scope
-- YOLO-based vehicle recognition  
-- Driver drowsiness detection  
-- Federated learning for multi-sensor data  
-- Hazard detection (floods, obstacles)  
-- Mobile app for live notifications  
+<h2>⚙️ Methodology</h2>
+
+<h3>1️⃣ Data Collection & Model Training</h3>
+<ul>
+  <li>Accident images collected from Kaggle dataset</li>
+  <li>Transfer Learning applied using pretrained MobileNetV2</li>
+  <li>Model optimized for real-time inference on Raspberry Pi</li>
+  <li>Achieved detection accuracy of <b>92%</b></li>
+</ul>
+
+<h3>2️⃣ Real-Time Accident Detection</h3>
+<ul>
+  <li>Pi Camera continuously monitors traffic</li>
+  <li>Captured frames are analyzed by the CNN model</li>
+  <li>Upon accident detection, LED and buzzer are activated</li>
+</ul>
+
+<h3>3️⃣ Emergency Notification System</h3>
+<ul>
+  <li>Accident alert sent to nearby hospital via MQTT</li>
+  <li>Hospital staff acknowledge the alert using a push button</li>
+  <li>Email with accident image and Google Maps location is sent</li>
+</ul>
+
+<h3>4️⃣ Victim Identification & Contact Alert</h3>
+<ul>
+  <li>Instructions displayed on a security pole near the accident site</li>
+  <li>Bystanders send the vehicle license plate number via SMS</li>
+  <li>Registered emergency contact is notified via SMS and call</li>
+</ul>
 
 ---
 
-## 👩‍💻 Authors
-- **Adityan Balakumar** — CSE(Hons.), IoT & Intelligent Systems, Manipal University Jaipur  
-- **Bhoomika Saxena** — CSE(Hons.), IoT & Intelligent Systems, Manipal University Jaipur  
-- **Dr. Usha Choudhary** — CSE(Hons.), IoT & Intelligent Systems, Manipal University Jaipur  
+<h2>🧪 Testing & Evaluation</h2>
+
+<ul>
+  <li>Model tested using unseen accident and non-accident images</li>
+  <li>Evaluation metrics include accuracy, false positives, and false negatives</li>
+  <li>MQTT latency and reliability analyzed</li>
+  <li>System showed minimal end-to-end alert delay</li>
+</ul>
 
 ---
 
-## 📂 Folder Structure
+<h2>📈 Results & Discussion</h2>
+
+<p>
+The system achieved an accident detection accuracy of <b>92%</b>, outperforming conventional threshold-based accident detection methods.
+</p>
+
+<ul>
+  <li>Fast and reliable accident detection</li>
+  <li>Instant hospital notification</li>
+  <li>Reduced emergency response time</li>
+</ul>
+
+<p>
+The results demonstrate the effectiveness of combining AI and IoT technologies for real-time emergency response systems.
+</p>
+
+---
+
+<h2>🚀 Future Scope</h2>
+
+<ul>
+  <li>Integration of vibration and sensor-based detection</li>
+  <li>Improved low-light and fog detection</li>
+  <li>YOLO-based vehicle identification</li>
+  <li>Federated learning for privacy-preserving training</li>
+  <li>Smart city and traffic management integration</li>
+</ul>
+
+---
+
+<h2>🏅 Key Contributions</h2>
+
+<ul>
+  <li>AI-powered real-time accident detection</li>
+  <li>Edge deployment on Raspberry Pi 5</li>
+  <li>MQTT-based hospital alert mechanism</li>
+  <li>GSM-based emergency notification system</li>
+  <li>Bystander-assisted victim identification</li>
+</ul>
+
+---
+
+<h2>👩‍💻 Author</h2>
+
+<p>
+<b>Bhoomika Saxena</b><br/>
+B.Tech — Computer Science (IoT & Intelligent Systems)<br/>
+AI | Embedded Systems | IoT | Research & Innovation
+</p>
+
+---
+
+<h2>📜 License</h2>
+
+<p>
+This project is intended for academic, research, and demonstration purposes only.
+</p>
+
+<hr/>
